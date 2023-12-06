@@ -1,8 +1,8 @@
 import requests
 
 # Configuration
-your_username = ''  # Replace 'your_username' with your GitHub username
-GITHUB_ACCESS_TOKEN = ''  # Replace this with your actual GitHub access token
+GITHUB_USERNAME = ''  # Add your GitHub username i.e 'swapond'
+GITHUB_ACCESS_TOKEN = ''  # Add your GitHub access token(with "delete_repo" scope) i.e 'ghp_FGVgwl..........'
 
 
 def get_user_repos(token):
@@ -25,7 +25,7 @@ def delete_repository(repo_name, token):
         'Authorization': f'token {token}',
         'Accept': 'application/vnd.github.v3+json'
     }
-    url = f'https://api.github.com/repos/{your_username}/{repo_name}'
+    url = f'https://api.github.com/repos/{GITHUB_USERNAME}/{repo_name}'
 
     response = requests.delete(url, headers=headers)
     if response.status_code == 204:
